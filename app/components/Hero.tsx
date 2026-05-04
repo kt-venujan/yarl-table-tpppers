@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Calendar, Trophy, ChevronRight } from "lucide-react";
 import { GOLD } from "./tokens";
 
 export function Hero() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -16,7 +16,7 @@ export function Hero() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
@@ -54,7 +54,7 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 2, ease: "easeOut" }}
+        transition={{ duration: 2, ease: "easeOut" as any }}
         className="pointer-events-none absolute inset-0"
         style={{
           background:

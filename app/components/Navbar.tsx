@@ -31,7 +31,7 @@ export function Navbar() {
           aria-label="Yarl Table Toppers home"
         >
           <img
-            src="/images/table-top-logo.pnggit push -u origin main"
+            src="/images/table-top-logo.png"
             alt="Yarl Table Toppers Logo"
             className="h-12 w-auto rounded-md"
           />

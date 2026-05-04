@@ -15,7 +15,7 @@ export function SwagChallenge() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: "easeOut" as any }}
         className="rounded-2xl border border-gray-800 bg-[#111111] p-8 md:p-12 relative overflow-hidden group"
       >
         {/* Decorative background glow */}
