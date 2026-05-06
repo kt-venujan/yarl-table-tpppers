@@ -42,7 +42,7 @@ export function Feedback() {
   };
 
   return (
-    <section className="mx-auto max-w-5xl px-6 pb-24">
+    <section id="feedback" className="mx-auto max-w-5xl px-6 pb-24">
       <AnimatePresence mode="wait">
         {submitted ? (
           <motion.div

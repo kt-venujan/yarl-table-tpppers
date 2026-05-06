@@ -41,7 +41,7 @@ export function Navbar() {
         <div className="hidden items-center gap-1 md:flex">
           {[
             { label: "Roundups", href: "/gallery" },
-            { label: "Leaderboard", href: "#leaderboard" },
+            { label: "Feedback", href: "#feedback" },
             { label: "Resources", href: "https://en.1jour-1jeu.com" },
           ].map((link) => (
             <a

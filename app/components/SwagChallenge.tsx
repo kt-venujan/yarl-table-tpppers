@@ -225,7 +225,7 @@ function PassportCard() {
       />
 
       {/* Passport header */}
-      <div className="relative z-10 flex items-center justify-between border-b px-6 py-4"
+      <div className="relative z-10 flex flex-col md:flex-row items-center md:justify-between border-b px-6 py-5 md:py-4 gap-4 md:gap-0"
         style={{ borderColor: "#1f1f1f" }}>
         <div className="flex items-center gap-3">
           {/* Passport stamp icon */}
@@ -238,7 +238,7 @@ function PassportCard() {
           >
             <Gamepad2 size={20} style={{ color: GOLD }} />
           </div>
-          <div>
+          <div className="text-center md:text-left">
             <p className="text-xs font-bold uppercase tracking-widest" style={{ color: GOLD }}>
               Gamer Passport
             </p>
@@ -247,8 +247,8 @@ function PassportCard() {
         </div>
 
         {/* Progress fraction */}
-        <div className="text-right">
-          <p className="text-2xl font-black text-white">
+        <div className="text-center md:text-right">
+          <p className="text-3xl md:text-2xl font-black text-white">
             {COMPLETED}
             <span className="text-base font-normal text-gray-600">/{TOTAL}</span>
           </p>
@@ -259,23 +259,28 @@ function PassportCard() {
       </div>
 
       {/* Skill tree */}
-      <div className="relative z-10 px-6 py-8">
-        <div className="flex items-start">
+      <div className="relative z-10 px-4 md:px-6 py-10 md:py-8">
+        <div className="grid grid-cols-5 md:flex items-start gap-y-10 md:gap-y-0">
           {nodes.map((state, i) => (
-            <div key={i} className="flex items-start" style={{ flex: i < TOTAL - 1 ? 1 : undefined }}>
-              <SkillNode index={i} state={state} delay={i * 0.06} />
+            <div key={i} className="flex items-start md:flex-1" style={{ flex: i < TOTAL - 1 ? 1 : undefined }}>
+              <div className="mx-auto md:mx-0">
+                <SkillNode index={i} state={state} delay={i * 0.06} />
+              </div>
+              {/* Connector: Hidden on mobile grid, visible on desktop row */}
               {i < TOTAL - 1 && (
-                <Connector filled={i < COMPLETED} />
+                <div className="hidden md:block flex-1">
+                  <Connector filled={i < COMPLETED} />
+                </div>
               )}
             </div>
           ))}
         </div>
 
         {/* Legend */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-6">
+        <div className="mt-12 md:mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
           {([
             { color: GOLD,          label: "Completed",      Icon: Check,    pulse: false, iconColor: GOLD },
-            { color: GOLD,          label: "Next up – RSVP!", Icon: Target,   pulse: true,  iconColor: GOLD },
+            { color: GOLD,          label: "Next up",        Icon: Target,   pulse: true,  iconColor: GOLD },
             { color: LOCKED_BORDER, label: "Locked",          Icon: Lock,     pulse: false, iconColor: LOCKED_BORDER },
             { color: GOLD,          label: "Grand Reward",    Icon: Gift,     pulse: false, iconColor: GOLD },
           ] as const).map(({ color, label, Icon, pulse, iconColor }) => (
@@ -296,7 +301,7 @@ function PassportCard() {
 
       {/* Footer ribbon */}
       <div
-        className="relative z-10 flex items-center justify-between border-t px-6 py-3"
+        className="relative z-10 flex flex-col md:flex-row items-center justify-between border-t px-6 py-4 md:py-3 gap-4 md:gap-0"
         style={{ borderColor: "#1f1f1f" }}
       >
         <p className="text-[11px] text-gray-600 flex items-center gap-1">
@@ -307,7 +312,7 @@ function PassportCard() {
           href="https://www.seatsnaps.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-lg px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-black transition-opacity hover:opacity-80"
+          className="w-full md:w-auto text-center rounded-lg px-6 py-2.5 md:py-1.5 text-[11px] font-bold uppercase tracking-widest text-black transition-opacity hover:opacity-80"
           style={{ background: GOLD }}
         >
           RSVP Next →

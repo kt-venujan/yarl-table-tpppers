@@ -128,12 +128,14 @@ export function Hero() {
             Join Next Event
           </a>
           <a
-            href="#leaderboard"
+            href="https://www.google.com/calendar/render?action=TEMPLATE&text=Round+2+Meetup+🎲&dates=20260530T140000/20260530T180000&details=Gather+your+party+for+Round+2+Meetup+by+Yarl+Table+Toppers.&location=Jaffna,+Sri+Lanka"
+            target="_blank"
+            rel="noopener noreferrer"
             id="hero-secondary-cta"
             className="inline-flex items-center gap-2 rounded-lg border border-gray-700 bg-transparent px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-gray-800 hover:border-gray-600 active:scale-95"
           >
-            <Trophy size={15} />
-            View Leaderboard
+            <Calendar size={15} />
+            Add to Google Calendar
           </a>
         </motion.div>
       </motion.div>
