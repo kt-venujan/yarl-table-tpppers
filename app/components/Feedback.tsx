@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, MessageSquare } from "lucide-react";
+import { Send, MessageSquare, Loader2 } from "lucide-react";
 import { GOLD } from "./tokens";
+import { submitFeedback } from "../actions/feedback";
 
 const ratings = [
   { emoji: "😫", label: "Poor" },
@@ -17,10 +18,27 @@ export function Feedback() {
   const [selectedRating, setSelectedRating] = useState<number | null>(2); // Default to neutral
   const [comment, setComment] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isPending, setIsPending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (selectedRating === null) return;
+
+    setIsPending(true);
+    const rating = ratings[selectedRating];
+    
+    try {
+      const result = await submitFeedback(rating.label, rating.emoji, comment);
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      alert("Error submitting feedback. Please check your connection.");
+    } finally {
+      setIsPending(false);
+    }
   };
 
   return (
@@ -133,13 +151,21 @@ export function Feedback() {
 
                 <button
                   type="submit"
-                  className="w-full md:w-auto px-10 py-3 rounded-lg font-bold text-sm transition-all duration-200 active:scale-95 shadow-lg hover:brightness-110"
+                  disabled={isPending}
+                  className="w-full md:w-auto px-10 py-3 rounded-lg font-bold text-sm transition-all duration-200 active:scale-95 shadow-lg hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mx-auto"
                   style={{
                     background: `linear-gradient(135deg, ${GOLD} 0%, #FFD166 100%)`,
                     color: "#000",
                   }}
                 >
-                  Submit Now
+                  {isPending ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Submit Now"
+                  )}
                 </button>
               </form>
             </div>

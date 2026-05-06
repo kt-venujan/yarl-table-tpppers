@@ -261,7 +261,7 @@ export function BentoGrid() {
             </div>
 
             <a
-              href="/roundup"
+              href="/gallery"
               id="roundup-gallery-link"
               className="inline-flex items-center gap-1.5 text-sm font-medium text-white underline decoration-gray-600 underline-offset-4 transition-all duration-200 hover:decoration-white"
             >
