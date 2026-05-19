@@ -159,7 +159,7 @@ export function BentoGrid() {
                   </svg>
                 </a>
                 <a
-                  href="https://www.instagram.com/yarlboardgamers?igsh=MWIwcHpmOW5sb3pueA=="
+                  href="https://www.instagram.com/yarltabletop/"
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Instagram"

@@ -43,7 +43,6 @@ export function Navbar() {
             { label: "Roundups", href: "/gallery" },
             { label: "Feedback", href: "#feedback" },
             { label: "Resources", href: "https://en.1jour-1jeu.com" },
-            { label: "Instagram", href: "https://www.instagram.com/yarltabletop/" },
           ].map((link) => (
             <a
               key={link.label}
