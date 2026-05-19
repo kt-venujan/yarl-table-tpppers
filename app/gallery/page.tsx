@@ -10,13 +10,13 @@ import { GOLD } from '../components/tokens';
 export default function GalleryPage() {
   const photos = [
     { id: 1, src: "https://res.cloudinary.com/dr3dhkvwq/image/upload/v1778040783/WhatsApp_Image_2026-05-05_at_23.40.23_lsqfeh.jpg", title: "The Gathering", date: "April 2026" },
-    { id: 2, src: "https://res.cloudinary.com/dr3dhkvwq/image/upload/v1778040783/WhatsApp_Image_2026-05-05_at_23.40.24_2_awqc3r.jpg", title: "Catan Clash", date: "April 2026" },
+    { id: 2, src: "https://res.cloudinary.com/dr3dhkvwq/image/upload/v1778040783/WhatsApp_Image_2026-05-05_at_23.40.24_2_awqc3r.jpg", title: "Monopoly Deal", date: "April 2026" },
     { id: 3, src: "https://res.cloudinary.com/dr3dhkvwq/image/upload/v1778040783/WhatsApp_Image_2026-05-05_at_23.40.24_1_jsfxab.jpg", title: "Strategy Night", date: "April 2026" },
-    { id: 4, src: "https://res.cloudinary.com/dr3dhkvwq/image/upload/v1778040783/WhatsApp_Image_2026-05-05_at_23.40.24_tfakwf.jpg", title: "Dice Roll", date: "April 2026" },
+    { id: 4, src: "https://res.cloudinary.com/dr3dhkvwq/image/upload/v1778040783/WhatsApp_Image_2026-05-05_at_23.40.24_tfakwf.jpg", title: "Cludo", date: "April 2026" },
     { id: 5, src: "https://res.cloudinary.com/dr3dhkvwq/image/upload/v1778040784/WhatsApp_Image_2026-05-05_at_23.40.25_1_nkfcox.jpg", title: "Victory Point", date: "April 2026" },
     { id: 6, src: "https://res.cloudinary.com/dr3dhkvwq/image/upload/v1778040784/WhatsApp_Image_2026-05-05_at_23.40.25_2_yo8joa.jpg", title: "Board Game Bliss", date: "April 2026" },
     { id: 7, src: "https://res.cloudinary.com/dr3dhkvwq/image/upload/v1778040784/WhatsApp_Image_2026-05-05_at_23.40.25_kwst4o.jpg", title: "Community Spirit", date: "April 2026" },
-    { id: 8, src: "https://res.cloudinary.com/dr3dhkvwq/image/upload/v1778040785/WhatsApp_Image_2026-05-05_at_23.40.26_1_fft4rb.jpg", title: "Tabletop Tactics", date: "April 2026" },
+    { id: 8, src: "https://res.cloudinary.com/dr3dhkvwq/image/upload/v1778040785/WhatsApp_Image_2026-05-05_at_23.40.26_1_fft4rb.jpg", title: "Tabletop Bundle", date: "April 2026" },
     { id: 9, src: "https://res.cloudinary.com/dr3dhkvwq/image/upload/v1778040785/WhatsApp_Image_2026-05-05_at_23.40.27_1_iedzua.jpg", title: "Game On", date: "April 2026" },
     { id: 10, src: "https://res.cloudinary.com/dr3dhkvwq/image/upload/v1778040785/WhatsApp_Image_2026-05-05_at_23.40.26_zo377z.jpg", title: "The Final Score", date: "April 2026" },
     { id: 11, src: "https://res.cloudinary.com/dr3dhkvwq/image/upload/v1778040784/WhatsApp_Image_2026-05-05_at_23.40.26_2_q51uy0.jpg", title: "Epic Moves", date: "April 2026" },

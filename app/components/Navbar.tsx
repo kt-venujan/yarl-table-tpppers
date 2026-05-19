@@ -43,10 +43,13 @@ export function Navbar() {
             { label: "Roundups", href: "/gallery" },
             { label: "Feedback", href: "#feedback" },
             { label: "Resources", href: "https://en.1jour-1jeu.com" },
+            { label: "Instagram", href: "https://www.instagram.com/yarltabletop/" },
           ].map((link) => (
             <a
               key={link.label}
               href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
               className="rounded-lg px-3 py-1.5 text-sm text-gray-400 transition-colors duration-200 hover:bg-gray-800/60 hover:text-white"
             >
               {link.label}

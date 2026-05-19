@@ -128,7 +128,7 @@ export function Hero() {
             Join Next Event
           </a>
           <a
-            href="https://www.google.com/calendar/render?action=TEMPLATE&text=Round+2+Meetup+🎲&dates=20260530T140000/20260530T180000&details=Gather+your+party+for+Round+2+Meetup+by+Yarl+Table+Toppers.&location=Jaffna,+Sri+Lanka"
+            href="https://www.google.com/calendar/render?action=TEMPLATE&text=Round+2+Meetup+🎲&dates=20260607T140000/20260607T180000&details=Gather+your+party+for+Round+2+Meetup+by+Yarl+Table+Toppers.&location=Jaffna,+Sri+Lanka"
             target="_blank"
             rel="noopener noreferrer"
             id="hero-secondary-cta"

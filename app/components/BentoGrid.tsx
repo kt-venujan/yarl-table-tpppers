@@ -71,7 +71,7 @@ export function BentoGrid() {
                   />
                   Upcoming
                 </Tag>
-                <span className="text-xs text-gray-500">May 30, 2026</span>
+                <span className="text-xs text-gray-500">June 7, 2026</span>
               </div>
             </div>
 

@@ -47,7 +47,7 @@ const ENTRIES: MeetupEntry[] = [
   },
   {
     id: 2,
-    date: new Date(2026, 4, 30),
+    date: new Date(2026, 5, 7),
     time: "2:00 PM",
     title: "Round 2 Meetup 🎲",
     organizer: "Yarl Table Toppers",
