@@ -1,13 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { BlogCard, BlogData } from "../components/BlogCard";
-import { Modal } from "../components/Modal";
 import { BookOpen, PenLine } from "lucide-react";
 import { GOLD } from "../components/tokens";
+import dynamic from "next/dynamic";
+
+const Modal = dynamic(() => import("../components/Modal").then((mod) => mod.Modal), {
+  ssr: false,
+});
 
 const BLOG_POSTS: BlogData[] = [
   {
@@ -42,14 +46,69 @@ const BLOG_POSTS: BlogData[] = [
   },
 ];
 
+function BlogCardSkeleton() {
+  return (
+    <div className="flex flex-col h-full rounded-xl border border-gray-900 bg-[#111111] overflow-hidden">
+      {/* Top color bar placeholder */}
+      <div className="h-1 w-full bg-gray-800/60 animate-pulse" />
+      <div className="flex flex-col flex-1 p-5 gap-4">
+        {/* Tag placeholder */}
+        <div className="h-4 w-20 rounded bg-gray-800/60 animate-pulse" />
+        {/* Title placeholder */}
+        <div className="space-y-2">
+          <div className="h-5 w-3/4 rounded bg-gray-800/40 animate-pulse" />
+          <div className="h-5 w-1/2 rounded bg-gray-800/40 animate-pulse" />
+        </div>
+        {/* Excerpt placeholder */}
+        <div className="space-y-2 flex-1 mt-2">
+          <div className="h-3.5 w-full rounded bg-gray-800/30 animate-pulse" />
+          <div className="h-3.5 w-full rounded bg-gray-800/30 animate-pulse" />
+          <div className="h-3.5 w-2/3 rounded bg-gray-800/30 animate-pulse" />
+        </div>
+        {/* Author & meta placeholder */}
+        <div className="flex items-center justify-between pt-3 border-t border-gray-900/60 mt-4">
+          <div className="flex items-center gap-2">
+            <div className="h-7 w-7 rounded-full bg-gray-850 animate-pulse" />
+            <div className="space-y-1">
+              <div className="h-3 w-16 rounded bg-gray-800/60 animate-pulse" />
+              <div className="h-2 w-10 rounded bg-gray-850 animate-pulse" />
+            </div>
+          </div>
+          <div className="h-3 w-12 rounded bg-gray-800/60 animate-pulse" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function BlogsPage() {
+  const [posts, setPosts] = useState<BlogData[]>(BLOG_POSTS);
+  const [loading, setLoading] = useState(true);
   const [writeModalOpen, setWriteModalOpen] = useState(false);
   const [postTitle, setPostTitle] = useState("");
   const [postBody, setPostBody] = useState("");
   const [postSubmitted, setPostSubmitted] = useState(false);
 
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handlePostSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const newPost: BlogData = {
+      id: posts.length + 1,
+      title: postTitle,
+      excerpt: postBody.substring(0, 140) + (postBody.length > 140 ? "..." : ""),
+      author: "Anonymous",
+      authorInitial: "A",
+      date: new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }),
+      readTime: `${Math.max(1, Math.ceil(postBody.split(/\s+/).length / 200))} min read`,
+      tag: "Community",
+    };
+
+    setPosts((prev) => [newPost, ...prev]);
     setPostSubmitted(true);
     setTimeout(() => {
       setWriteModalOpen(false);
@@ -88,14 +147,15 @@ export default function BlogsPage() {
             </div>
           </motion.div>
 
-          {/* Blog grid */}
+           {/* Blog grid */}
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {BLOG_POSTS.map((post, i) => (
-              <motion.div key={post.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}>
-                <BlogCard post={post} />
-              </motion.div>
-            ))}
+            {loading
+              ? Array.from({ length: 6 }).map((_, i) => (
+                  <BlogCardSkeleton key={i} />
+                ))
+              : posts.map((post, i) => (
+                  <BlogCard key={post.id} post={post} index={i} />
+                ))}
           </div>
         </div>
       </main>

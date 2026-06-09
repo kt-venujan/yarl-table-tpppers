@@ -10,7 +10,7 @@ import { GOLD } from "../components/tokens";
 
 const EVENTS: EventData[] = [
   {
-    id: 1, title: "Round 2 Meetup 🎲", date: "2026-07-12", month: "JUL", day: "12",
+    id: 1, title: "Round 2 Meetup 🎲", date: "2026-06-13", month: "JUN", day: "13",
     time: "2:00 PM", location: "Jaffna, Sri Lanka",
     description: "Our biggest meetup yet — more tables, more games, and the Swag Challenge continues! New members welcome.",
     attendees: null, games: ["Catan", "Wingspan", "Codenames"], type: "upcoming",

@@ -15,11 +15,14 @@ export interface BlogData {
   tag: string;
 }
 
-export function BlogCard({ post }: { post: BlogData }) {
+export function BlogCard({ post, index = 0 }: { post: BlogData; index?: number }) {
   return (
     <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.06 }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="group relative flex flex-col rounded-xl border border-gray-800 bg-[#111111] overflow-hidden transition-colors duration-300 hover:border-gray-600 hover:bg-[#141414]"
+      className="group relative flex flex-col h-full rounded-xl border border-gray-800 bg-[#111111] overflow-hidden transition-colors duration-300 hover:border-gray-600 hover:bg-[#141414]"
     >
       {/* Hover glow */}
       <div

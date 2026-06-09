@@ -23,13 +23,16 @@ const difficultyColors: Record<string, { bg: string; text: string; border: strin
   Expert: { bg: "#a855f715", text: "#a855f7", border: "#a855f730" },
 };
 
-export function GameCard({ game }: { game: GameData }) {
+export function GameCard({ game, index = 0 }: { game: GameData; index?: number }) {
   const dc = difficultyColors[game.difficulty];
 
   return (
     <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, delay: index * 0.04 }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="group relative rounded-xl border border-gray-800 bg-[#111111] p-5 transition-colors duration-300 hover:border-gray-600 hover:bg-[#141414] overflow-hidden"
+      className="group relative rounded-xl border border-gray-800 bg-[#111111] p-5 transition-colors duration-300 hover:border-gray-600 hover:bg-[#141414] overflow-hidden h-full flex flex-col"
     >
       {/* Hover glow */}
       <div
@@ -81,7 +84,7 @@ export function GameCard({ game }: { game: GameData }) {
 
       {/* Difficulty tag */}
       <span
-        className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium border"
+        className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium border mt-auto self-start"
         style={{
           background: dc.bg,
           color: dc.text,

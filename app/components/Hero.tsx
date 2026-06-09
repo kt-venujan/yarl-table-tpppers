@@ -57,7 +57,7 @@ export function Hero() {
           }}
         >
           <Calendar size={12} />
-          Next Event: June 12th, 2026
+          Next Event: June 13th, 2026
           <ChevronRight size={12} />
         </motion.a>
 

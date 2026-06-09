@@ -100,10 +100,7 @@ export default function ShopPage() {
           {/* Products Grid */}
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {filteredProducts.map((product, i) => (
-              <motion.div key={product.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.04 }}>
-                <ProductCard product={product} onAddToCart={addToCart} />
-              </motion.div>
+              <ProductCard key={product.id} product={product} onAddToCart={addToCart} index={i} />
             ))}
           </div>
         </div>
